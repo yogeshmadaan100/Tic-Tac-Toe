@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -107,6 +108,7 @@ public class AndroidTicTacToe extends ActionBarActivity {
 			mTurn = TicTacToeGame.COMPUTER_PLAYER;
 			mInfoTextView.setText(R.string.first_computer);
 			int move = mGame.getComputerMove();
+			Log.e("position", ""+move);
 			setMove(TicTacToeGame.COMPUTER_PLAYER, move);
 			mInfoTextView.setText(R.string.turn_human);
 		} else {
@@ -176,6 +178,7 @@ public class AndroidTicTacToe extends ActionBarActivity {
 				if (winner == 0) {
 					mInfoTextView.setText(R.string.turn_computer);
 					int move = mGame.getComputerMove();
+					Log.e("position", ""+move);
 					setMove(TicTacToeGame.COMPUTER_PLAYER, move);
 					winner = mGame.checkForWinner();
 				}

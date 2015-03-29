@@ -153,6 +153,7 @@ public class TicTacToeGame {
 					mBoard[i] = OPEN_SPOT;
 			}
 		}
+		//getMax(mBoard, 0);
 		return -1;
 	}
 
@@ -179,6 +180,7 @@ public class TicTacToeGame {
 		// EASY difficulty, just do a random move
 		if (mDifficultyLevel == DifficultyLevel.Easy) {
 			move = getRandomMove();
+			return move;
 		}
 
 		// harder difficulty, try to win then do random
@@ -187,22 +189,27 @@ public class TicTacToeGame {
 			if (move == -1) {
 				move = getRandomMove();
 			}
+			return move;
 		}
 
 		// expert, try to win then block then random
 		else if (mDifficultyLevel == DifficultyLevel.Expert) {
 			
-			move = getWinningMove();
+			
+			/*move = getWinningMove();
 			if (move == -1) {
 				move = getBlockingMove();
 			}
 			if (move == -1) {
 				move = getRandomMove();
-			}
+			}*/
+			move=determineBestMove();
+			return move;
+			
 		}
-
+		return 0;
 		// return the move
-		return move;
+		
 
 	}
 	
@@ -218,7 +225,64 @@ public class TicTacToeGame {
 	
 	
 	
-public int getMin(int[] board, int depth){
+	public int determineBestMove(){
+		/*since only one computer AI is needed, a constructor is 
+		 * not needed.  however, if there were two AIs, one could
+		 * create them with different me values
+		 */
+		int[][] board = new int[3][3];
+		for(int i=0;i<3;i++)
+		{
+			for(int j=0;j<3;j++)
+			{
+				switch (mBoard[3*i+j]) {
+				case 'O':
+					board[i][j]=1;
+					break;
+				case 'X':
+					board[i][j]=-1;
+					break;
+				case ' ':
+					board[i][j]=0;
+					break;
+				default:
+					break;
+				}
+				
+			}
+		}
+		Log.e("mBoard is", "this");
+		for(int i=0;i<3;i++)
+		{
+			for(int j=0;j<3;j++)
+			{
+				System.out.print(mBoard[3*i+j]);
+			}
+			System.out.println();
+		}
+		Log.e("board is", "this");
+		for(int i=0;i<3;i++)
+		{
+			for(int j=0;j<3;j++)
+			{
+				System.out.print(board[i][j]);
+			}
+			System.out.println();
+		}
+		int[] choice = new int[2];
+		
+			getMax(board, 0);
+		
+		/*after getting min or max
+		get chosen i,j coordinate for choice */
+		choice[0] = iCoordinate;
+		choice[1] = jCoordinate;
+		
+		//return i,j choice coordinates as best move
+		return 3*iCoordinate+jCoordinate;
+	}
+	
+	public int getMin(int[][] board, int depth){
 		
 		//check game state to determine if at end of recursion
 		int val = checkGameState(board);
@@ -232,10 +296,10 @@ public int getMin(int[] board, int depth){
 			for(int j = 0; j < 3; j++){
 				
 				//determine if spot is open
-				if(board[3*i+j] == 0){
+				if(board[i][j] == 0){
 					
 					//if spot is open, temporarily choose it
-					board[3*i+j] = -1;
+					board[i][j] = -1;
 					
 					//recursively get score of that choice
 					score = getMax(board, depth+1);
@@ -254,7 +318,7 @@ public int getMin(int[] board, int depth){
 					}
 					
 					//remove temporary choice
-					board[3*i+j] = 0;
+					board[i][j] = 0;
 				}
 			} //end of inner loops
 		} //end of outer for loop
@@ -263,7 +327,7 @@ public int getMin(int[] board, int depth){
 		return min;
 	}
 	
-	public int getMax(int[] board, int depth){
+	public int getMax(int[][] board, int depth){
 		
 		//check game state to determine if at end of recursion
 		int val = checkGameState(board);
@@ -278,10 +342,10 @@ public int getMin(int[] board, int depth){
 			for(int j = 0; j < 3; j++){
 				
 				//determine if spot is open
-				if(board[3*i+j] == 0){
+				if(board[i][j] == 0){
 					
 					//if spot is open, temporarily choose it
-					board[3*i+j] = 1;
+					board[i][j] = 1;
 					
 					//recursively get score of that choice
 					score = getMin(board, depth+1);
@@ -300,7 +364,7 @@ public int getMin(int[] board, int depth){
 					}
 					
 					//remove temporary choice
-					board[3*i+j] = 0;
+					board[i][j] = 0;
 				}
 			} // end of inner for loop
 		} //end of outer for loop
@@ -309,7 +373,7 @@ public int getMin(int[] board, int depth){
 		return max;
 	}
 		
-	public int checkGameState(int[] board){
+	public int checkGameState(int[][] board){
 		/*check status of game, namely if someone has won */
 		
 		//0 no winner, game is draw
@@ -319,51 +383,54 @@ public int getMin(int[] board, int depth){
 		
 		//check rows
 		
-
-		// Check horizontal wins
-		for (int i = 0; i <= 6; i += 3) {
-			if (mBoard[i] == HUMAN_PLAYER && mBoard[i + 1] == HUMAN_PLAYER
-					&& mBoard[i + 2] == HUMAN_PLAYER)
-				return -1;
-			if (mBoard[i] == COMPUTER_PLAYER
-					&& mBoard[i + 1] == COMPUTER_PLAYER
-					&& mBoard[i + 2] == COMPUTER_PLAYER)
-				return 1;
-		}
-
-		// Check vertical wins
-		for (int i = 0; i <= 2; i++) {
-			if (mBoard[i] == HUMAN_PLAYER && mBoard[i + 3] == HUMAN_PLAYER
-					&& mBoard[i + 6] == HUMAN_PLAYER)
-				return -1;
-			if (mBoard[i] == COMPUTER_PLAYER
-					&& mBoard[i + 3] == COMPUTER_PLAYER
-					&& mBoard[i + 6] == COMPUTER_PLAYER)
-				return 1;
-		}
-
-		// Check for diagonal wins
-		if ((mBoard[0] == HUMAN_PLAYER && mBoard[4] == HUMAN_PLAYER && mBoard[8] == HUMAN_PLAYER)
-				|| (mBoard[2] == HUMAN_PLAYER && mBoard[4] == HUMAN_PLAYER && mBoard[6] == HUMAN_PLAYER))
-			return -1;
-		if ((mBoard[0] == COMPUTER_PLAYER && mBoard[4] == COMPUTER_PLAYER && mBoard[8] == COMPUTER_PLAYER)
-				|| (mBoard[2] == COMPUTER_PLAYER
-						&& mBoard[4] == COMPUTER_PLAYER && mBoard[6] == COMPUTER_PLAYER))
-			return 1;
-
-		// Check for tie
-		for (int i = 0; i < BOARD_SIZE; i++) {
-			// If we find a number, then no one has won yet
-			if (mBoard[i] != HUMAN_PLAYER && mBoard[i] != COMPUTER_PLAYER)
-				return 2;
-		}
-
-		// If we make it through the previous loop, all places are taken, so
-		// it's a tie
-		return 0;
+		if(board[0][0] == 1 && board[0][1] == 1 && board[0][2] == 1){ return 1;}
+		if(board[1][0] == 1 && board[1][1] == 1 && board[1][2] == 1){return 1;}
+		if(board[2][0] == 1 && board[2][1] == 1 && board[2][2] == 1){return 1;}
+		
+		if(board[0][0] == -1 && board[0][1] == -1 && board[0][2] == -1){ return -1;}
+		if(board[1][0] == -1 && board[1][1] == -1 && board[1][2] == -1){return -1;}
+		if(board[2][0] == -1 && board[2][1] == -1 && board[2][2] == -1){return -1;}
+				
+		//check columns
+		
+		if(board[0][0] == 1 && board[1][0] == 1 && board[2][0] == 1){ return 1;}
+		if(board[0][1] == 1 && board[1][1] == 1 && board[2][1] == 1){ return 1;}
+		if(board[0][2] == 1 && board[1][2] == 1 && board[2][2] == 1){ return 1;}
+		
+		if(board[0][0] == -1 && board[1][0] == -1 && board[2][0] == -1){ return -1;}
+		if(board[0][1] == -1 && board[1][1] == -1 && board[2][1] == -1){ return -1;}
+		if(board[0][2] == -1 && board[1][2] == -1 && board[2][2] == -1){ return -1;}
+		
+		//check diagonal cases
+		
+		if(board[0][0] == 1 && board[1][1] == 1 && board[2][2] == 1){ return 1;}
+		if(board[2][0] == 1 && board[1][1] == 1 && board[0][2] == 1){ return 1;}
+		
+		if(board[0][0] == -1 && board[1][1] == -1 && board[2][2] == -1){ return -1;}
+		if(board[2][0] == -1 && board[1][1] == -1 && board[0][2] == -1){ return -1;}
 		
 		
+		//check for full board, i.e. draw
+		int count = 0;
+		for(int i = 0; i < 3; i++){
+			for(int j = 0; j < 3; j++){
+				if(board[i][j] == 0){
+					break;
+				}
+				else{
+					count++;
+				}
+			}  //end inner loop
+		} // end outer loop
+		
+		//if all squares are taken, game is draw
+		if(count == 9){
+			return 0;  //zero is code for draw
+		}
+		
+		return 2;  //if non of above returned, return 2, meaning game still on, no winner
 	}
+	
 	
 	
 
