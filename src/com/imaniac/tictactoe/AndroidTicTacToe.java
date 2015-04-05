@@ -15,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.imaniac.tictactoe.TicTacToeGame.DifficultyLevel;
+import com.rey.material.app.DialogFragment;
+import com.rey.material.app.SimpleDialog;
 
 public class AndroidTicTacToe extends ActionBarActivity {
 
@@ -53,7 +55,7 @@ public class AndroidTicTacToe extends ActionBarActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		getSupportActionBar().setDisplayShowTitleEnabled(false);
+		//getSupportActionBar().setDisplayShowTitleEnabled(false);
 		Bundle b =getIntent().getExtras();
 		int dif=b.getInt("difficulty");
 		
@@ -132,6 +134,28 @@ public class AndroidTicTacToe extends ActionBarActivity {
 		mGameOver = true;
 		for (int i = 0; i < mBoardButtons.length; i++)
 			mBoardButtons[i].setEnabled(false);
+		com.rey.material.app.Dialog.Builder builder=null;
+		  builder = new SimpleDialog.Builder(R.style.SimpleDialog){
+              @Override
+              public void onPositiveActionClicked(DialogFragment fragment) {
+                  startNewGame();
+            	  fragment.dismiss();
+              }
+
+              @Override
+              public void onNegativeActionClicked(DialogFragment fragment) {
+                  
+            	  fragment.dismiss();
+            	  onBackPressed();
+              }
+          };
+
+          ((SimpleDialog.Builder)builder).message(""+mInfoTextView.getText().toString())
+                  .positiveAction("Play Again")
+                  .negativeAction("Exit");
+          
+          DialogFragment fragment=DialogFragment.newInstance(builder);
+          fragment.show(getSupportFragmentManager(), null);
 	}
 
 	/*@Override

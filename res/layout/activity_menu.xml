@@ -1,5 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -7,30 +8,59 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="scottmd3.tictactoe.MenuActivity"
-    android:background="#000000" >
+    android:background="#ffffff" 
+    xmlns:app1="http://schemas.android.com/apk/res/com.imaniac.tictactoe"
+    android:fillViewport="true"
+    android:scrollbarStyle="outsideOverlay">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:orientation="vertical" >
-
-        <Spinner
-            android:id="@+id/spinner1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <Spinner
-            android:id="@+id/spinner2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/button1"
+        android:orientation="vertical" 
+        android:gravity="center">
+        <com.rey.material.widget.Spinner
+            style="@style/Material.Widget.Spinner.Light"
+            android:id="@+id/spinner_players"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Play" />
+            android:minWidth="128dp"
+            app:ripple="@style/FlatWaveButtonRippleStyle"
+            app:delayClick="false"
+            app:spn_labelEnable="true"
+            app:spn_label="Select No of Players" 
+            app:spn_arrowSwitchMode="true"
+            android:layout_margin="20dp"
+            app:spn_arrowAnimDuration="@android:integer/config_shortAnimTime"
+            app:spn_arrowInterpolator="@android:anim/decelerate_interpolator"/>
+        <com.rey.material.widget.Spinner
+            style="@style/Material.Widget.Spinner.Light"
+            android:id="@+id/spinner_difficulty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="128dp"
+            app:ripple="@style/FlatWaveButtonRippleStyle"
+            app:delayClick="false"
+            app:spn_labelEnable="true"
+            app:spn_label="Select Difficulty Level"
+            app:spn_arrowSwitchMode="true"
+            android:layout_margin="20dp"
+            app:spn_arrowAnimDuration="@android:integer/config_shortAnimTime"
+            app:spn_arrowInterpolator="@android:anim/decelerate_interpolator"/>
+        
+        <com.rey.material.widget.Button
+		        android:id="@+id/button_play"
+		        android:layout_width="100dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="0.4"
+		        android:textColor="#000000"
+		        android:textAppearance="@style/Base.TextAppearance.AppCompat.Button"
+		        android:text="Play"
+		        app:ripple="@style/RaiseColorButtonRippleStyle"
+		        app:delayClick="true"/>
+
+       
 
     </LinearLayout>
    

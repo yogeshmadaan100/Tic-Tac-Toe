@@ -3,15 +3,14 @@ package com.imaniac.tictactoe;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.Spinner;
+
+import com.rey.material.widget.Button;
+import com.rey.material.widget.Spinner;
+import com.rey.material.widget.Spinner.OnItemSelectedListener;
 
 public class MenuActivity extends Activity {
 	Spinner game_type,difficulty_type;
@@ -23,42 +22,37 @@ public class MenuActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_menu);
-		game_type=(Spinner)findViewById(R.id.spinner1);
-		difficulty_type=(Spinner)findViewById(R.id.spinner2);
-		game_type.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item,game));
-		difficulty_type.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item,difficulties));
+		game_type=(Spinner)findViewById(R.id.spinner_players);
+		difficulty_type=(Spinner)findViewById(R.id.spinner_difficulty);
+		ArrayAdapter<String> game_adapter=new ArrayAdapter<String>(getApplicationContext(), R.layout.row_spn,game);
+		game_type.setAdapter(game_adapter);
+		game_adapter.setDropDownViewResource(R.layout.row_spn_dropdown);
+		ArrayAdapter<String> difficulty_adapter=new ArrayAdapter<String>(getApplicationContext(), R.layout.row_spn,difficulties);
+		difficulty_type.setAdapter(difficulty_adapter);
+		difficulty_adapter.setDropDownViewResource(R.layout.row_spn_dropdown);
 		game_type.setOnItemSelectedListener(new OnItemSelectedListener() {
 
-			@Override
-			public void onItemSelected(AdapterView<?> parent, View view,
-					int position, long id) {
-				// TODO Auto-generated method stub
-				arg1=position;
-			}
+			
 
 			@Override
-			public void onNothingSelected(AdapterView<?> parent) {
+			public void onItemSelected(Spinner parent, View view, int position,
+					long id) {
 				// TODO Auto-generated method stub
-				
+				arg1=position;
 			}
 		});
 		difficulty_type.setOnItemSelectedListener(new OnItemSelectedListener() {
 
+		
 			@Override
-			public void onItemSelected(AdapterView<?> parent, View view,
-					int position, long id) {
+			public void onItemSelected(Spinner parent, View view, int position,
+					long id) {
 				// TODO Auto-generated method stub
 				arg2=position;
 			}
-
-			@Override
-			public void onNothingSelected(AdapterView<?> parent) {
-				// TODO Auto-generated method stub
-				
-			}
 		});
 		
-		Button play=(Button)findViewById(R.id.button1);
+		Button play=(Button)findViewById(R.id.button_play);
 		play.setOnClickListener(new OnClickListener() {
 			
 			@Override
