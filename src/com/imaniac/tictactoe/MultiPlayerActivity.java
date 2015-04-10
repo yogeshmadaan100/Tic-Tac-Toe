@@ -14,6 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.imaniac.tictactoe.MultiTicTacToeGame.DifficultyLevel;
+import com.rey.material.app.DialogFragment;
+import com.rey.material.app.SimpleDialog;
 
 public class MultiPlayerActivity extends ActionBarActivity {
 
@@ -59,7 +61,10 @@ public class MultiPlayerActivity extends ActionBarActivity {
 		mBoardButtons = new Button[TicTacToeGame.BOARD_SIZE];
 		for (int i = 0; i < mBoardButtons.length; i++)
 			mBoardButtons[i] = (Button) findViewById(BUTTON_IDS[i]);
-
+		TextView computer_Name=(TextView)findViewById(R.id.computer_score_label);
+		computer_Name.setText("Player 2");
+		TextView computer_Name1=(TextView)findViewById(R.id.player_score_label);
+		computer_Name1.setText("Player 1");
 		// get the TextViews
 		mInfoTextView = (TextView) findViewById(R.id.information);
 		mHumanScoreTextView = (TextView) findViewById(R.id.player_score);
@@ -105,13 +110,13 @@ public class MultiPlayerActivity extends ActionBarActivity {
 		// Alternate who goes first
 		if (mTurn == MultiTicTacToeGame.HUMAN_PLAYER_1) {
 			mTurn = MultiTicTacToeGame.HUMAN_PLAYER_2;
-			mInfoTextView.setText(R.string.first_computer);
+			mInfoTextView.setText(R.string.turn_human2);
 			//int move = mGame.getComputerMove();
 			//setMove(MultiTicTacToeGame.HUMAN_PLAYER_2, move);
-			mInfoTextView.setText(R.string.turn_human);
+			
 		} else {
 			mTurn = MultiTicTacToeGame.HUMAN_PLAYER_1;
-			mInfoTextView.setText(R.string.first_human);
+			mInfoTextView.setText(R.string.turn_human1);
 		}
 	}
 
@@ -130,6 +135,29 @@ public class MultiPlayerActivity extends ActionBarActivity {
 		mGameOver = true;
 		for (int i = 0; i < mBoardButtons.length; i++)
 			mBoardButtons[i].setEnabled(false);
+		
+		com.rey.material.app.Dialog.Builder builder=null;
+		  builder = new SimpleDialog.Builder(R.style.SimpleDialog){
+            @Override
+            public void onPositiveActionClicked(DialogFragment fragment) {
+                startNewGame();
+          	  fragment.dismiss();
+            }
+
+            @Override
+            public void onNegativeActionClicked(DialogFragment fragment) {
+                
+          	  fragment.dismiss();
+          	  onBackPressed();
+            }
+        };
+
+        ((SimpleDialog.Builder)builder).message(""+mInfoTextView.getText().toString())
+                .positiveAction("Play Again")
+                .negativeAction("Exit");
+        
+        DialogFragment fragment=DialogFragment.newInstance(builder);
+        fragment.show(getSupportFragmentManager(), null);
 	}
 
 	/*@Override
@@ -171,26 +199,28 @@ public class MultiPlayerActivity extends ActionBarActivity {
 				setMove(mTurn, location);
 				if (mTurn == MultiTicTacToeGame.HUMAN_PLAYER_1) {
 					mTurn = MultiTicTacToeGame.HUMAN_PLAYER_2;
-					mInfoTextView.setText(R.string.first_computer);
+					mInfoTextView.setText("Player 1 goes first");
 					//int move = mGame.getComputerMove();
 					//setMove(MultiTicTacToeGame.HUMAN_PLAYER_2, move);
-					mInfoTextView.setText(R.string.turn_human);
+					mInfoTextView.setText(R.string.turn_human2);
 				} else {
 					mTurn = MultiTicTacToeGame.HUMAN_PLAYER_1;
-					mInfoTextView.setText(R.string.first_human);
+					mInfoTextView.setText(R.string.turn_human1);
 				}
 				// If no winner yet, let the <Mike's version> computer make a
 				// move
 				int winner = mGame.checkForWinner();
 				if (winner == 0) {
-					mInfoTextView.setText(R.string.turn_computer);
+					//mInfoTextView.setText(R.string.turn_human2);
 				//	int move = mGame.getComputerMove();
 					//setMove(MultiTicTacToeGame.HUMAN_PLAYER_2, move);
 					//winner = mGame.checkForWinner();
 				}
 
 				if (winner == 0)
-					mInfoTextView.setText(R.string.turn_human);
+					{
+					//mInfoTextView.setText(R.string.turn_human1);
+					}
 				else {
 					if (winner == 1) {
 						mInfoTextView.setText(R.string.result_tie);
@@ -200,12 +230,12 @@ public class MultiPlayerActivity extends ActionBarActivity {
 						mHumanWins++;
 						mHumanScoreTextView.setText(Integer
 								.toString(mHumanWins));
-						mInfoTextView.setText(R.string.result_human_wins);
+						mInfoTextView.setText("Player 1 Wins");
 					} else {
 						mComputerWins++;
 						mComputerScoreTextView.setText(Integer
 								.toString(mComputerWins));
-						mInfoTextView.setText(R.string.result_computer_wins);
+						mInfoTextView.setText("Player 2 Wins");
 					}
 					gameOver();
 				}

@@ -712,14 +712,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int customNavigationLayout=0x7f01006b;
-        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-         */
-        public static final int delayClick=0x7f0100b8;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
@@ -2162,60 +2154,70 @@ in (inches), mm (millimeters).
         public static final int rbd_width=0x7f0100fd;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
-"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-         */
-        public static final int rd_background=0x7f0100db;
-        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be an integer value, such as "<code>100</code>".
          */
-        public static final int rd_backgroundAnimDuration=0x7f0100dd;
+        public static final int rd_backgroundAnimDuration=0x7f0100dc;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int rd_backgroundColor=0x7f0100dc;
+        public static final int rd_backgroundColor=0x7f0100db;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
          */
-        public static final int rd_bottomLeftCornerRadius=0x7f0100e8;
+        public static final int rd_bottomLeftCornerRadius=0x7f0100e7;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
          */
-        public static final int rd_bottomPadding=0x7f0100ee;
+        public static final int rd_bottomPadding=0x7f0100ed;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
          */
-        public static final int rd_bottomRightCornerRadius=0x7f0100e9;
+        public static final int rd_bottomRightCornerRadius=0x7f0100e8;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
          */
-        public static final int rd_cornerRadius=0x7f0100e5;
+        public static final int rd_cornerRadius=0x7f0100e4;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int rd_delayClick=0x7f0100ee;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int rd_enable=0x7f0100b8;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int rd_inInterpolator=0x7f0100e1;
+        public static final int rd_inInterpolator=0x7f0100e0;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
          */
-        public static final int rd_leftPadding=0x7f0100eb;
+        public static final int rd_leftPadding=0x7f0100ea;
         /** <p>May be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -2232,7 +2234,7 @@ containing a value of this type.
 <tr><td><code>oval</code></td><td>0x00000001</td><td></td></tr>
 </table>
          */
-        public static final int rd_maskType=0x7f0100e3;
+        public static final int rd_maskType=0x7f0100e2;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be an integer value, such as "<code>100</code>".
@@ -2248,36 +2250,36 @@ in (inches), mm (millimeters).
 <tr><td><code>match_view</code></td><td>0x00000000</td><td></td></tr>
 </table>
          */
-        public static final int rd_maxRippleRadius=0x7f0100de;
+        public static final int rd_maxRippleRadius=0x7f0100dd;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int rd_outInterpolator=0x7f0100e2;
+        public static final int rd_outInterpolator=0x7f0100e1;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
          */
-        public static final int rd_padding=0x7f0100ea;
+        public static final int rd_padding=0x7f0100e9;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
          */
-        public static final int rd_rightPadding=0x7f0100ed;
+        public static final int rd_rightPadding=0x7f0100ec;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be an integer value, such as "<code>100</code>".
          */
-        public static final int rd_rippleAnimDuration=0x7f0100e0;
+        public static final int rd_rippleAnimDuration=0x7f0100df;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int rd_rippleColor=0x7f0100df;
+        public static final int rd_rippleColor=0x7f0100de;
         /** <p>May be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -2294,32 +2296,32 @@ containing a value of this type.
 <tr><td><code>wave</code></td><td>0x00000001</td><td></td></tr>
 </table>
          */
-        public static final int rd_rippleType=0x7f0100e4;
-        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-<p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
-Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
-in (inches), mm (millimeters).
-         */
-        public static final int rd_topLeftCornerRadius=0x7f0100e6;
-        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-<p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
-Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
-in (inches), mm (millimeters).
-         */
-        public static final int rd_topPadding=0x7f0100ec;
-        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-<p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
-Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
-in (inches), mm (millimeters).
-         */
-        public static final int rd_topRightCornerRadius=0x7f0100e7;
+        public static final int rd_rippleType=0x7f0100e3;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int ripple=0x7f0100b7;
+        public static final int rd_style=0x7f0100b7;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+         */
+        public static final int rd_topLeftCornerRadius=0x7f0100e5;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+         */
+        public static final int rd_topPadding=0x7f0100eb;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+         */
+        public static final int rd_topRightCornerRadius=0x7f0100e6;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
@@ -4073,32 +4075,34 @@ containing a value of this type.
         public static final int abc_toolbar_collapse_description=0x7f0c0004;
         public static final int action_settings=0x7f0c0012;
         public static final int app_name=0x7f0c0010;
-        public static final int difficulty_choose=0x7f0c0023;
-        public static final int difficulty_easy=0x7f0c0024;
-        public static final int difficulty_expert=0x7f0c0026;
-        public static final int difficulty_harder=0x7f0c0025;
-        public static final int first_computer=0x7f0c001d;
+        public static final int difficulty_choose=0x7f0c0025;
+        public static final int difficulty_easy=0x7f0c0026;
+        public static final int difficulty_expert=0x7f0c0028;
+        public static final int difficulty_harder=0x7f0c0027;
+        public static final int first_computer=0x7f0c001f;
         public static final int first_human=0x7f0c0013;
         public static final int hello_world=0x7f0c0011;
-        public static final int info_Label=0x7f0c0021;
-        public static final int infoforTut=0x7f0c001c;
-        public static final int menu_settings=0x7f0c001f;
-        public static final int new_game=0x7f0c001e;
-        public static final int no=0x7f0c0029;
-        public static final int quit_question=0x7f0c0027;
-        public static final int result_computer_wins=0x7f0c0018;
-        public static final int result_human_wins=0x7f0c0017;
-        public static final int result_tie=0x7f0c0016;
-        public static final int score_label_computer=0x7f0c001b;
-        public static final int score_label_human=0x7f0c0019;
-        public static final int score_label_tie=0x7f0c001a;
-        public static final int title_activity_android_tic_tac_toe=0x7f0c0020;
-        public static final int title_activity_menu=0x7f0c002a;
-        public static final int title_activity_multi_player=0x7f0c002b;
-        public static final int turn_computer=0x7f0c0015;
+        public static final int info_Label=0x7f0c0023;
+        public static final int infoforTut=0x7f0c001e;
+        public static final int menu_settings=0x7f0c0021;
+        public static final int new_game=0x7f0c0020;
+        public static final int no=0x7f0c002b;
+        public static final int quit_question=0x7f0c0029;
+        public static final int result_computer_wins=0x7f0c001a;
+        public static final int result_human_wins=0x7f0c0019;
+        public static final int result_tie=0x7f0c0018;
+        public static final int score_label_computer=0x7f0c001d;
+        public static final int score_label_human=0x7f0c001b;
+        public static final int score_label_tie=0x7f0c001c;
+        public static final int title_activity_android_tic_tac_toe=0x7f0c0022;
+        public static final int title_activity_menu=0x7f0c002c;
+        public static final int title_activity_multi_player=0x7f0c002d;
+        public static final int turn_computer=0x7f0c0017;
         public static final int turn_human=0x7f0c0014;
-        public static final int yes=0x7f0c0028;
-        public static final int zero=0x7f0c0022;
+        public static final int turn_human1=0x7f0c0015;
+        public static final int turn_human2=0x7f0c0016;
+        public static final int yes=0x7f0c002a;
+        public static final int zero=0x7f0c0024;
     }
     public static final class style {
         /**  AppBar Style 
@@ -7462,7 +7466,6 @@ in (inches), mm (millimeters).
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #FloatingActionButton_delayClick com.imaniac.tictactoe:delayClick}</code></td><td></td></tr>
            <tr><td><code>{@link #FloatingActionButton_fab_animDuration com.imaniac.tictactoe:fab_animDuration}</code></td><td></td></tr>
            <tr><td><code>{@link #FloatingActionButton_fab_backgroundColor com.imaniac.tictactoe:fab_backgroundColor}</code></td><td></td></tr>
            <tr><td><code>{@link #FloatingActionButton_fab_elevation com.imaniac.tictactoe:fab_elevation}</code></td><td></td></tr>
@@ -7471,9 +7474,7 @@ in (inches), mm (millimeters).
            <tr><td><code>{@link #FloatingActionButton_fab_iconSrc com.imaniac.tictactoe:fab_iconSrc}</code></td><td></td></tr>
            <tr><td><code>{@link #FloatingActionButton_fab_interpolator com.imaniac.tictactoe:fab_interpolator}</code></td><td></td></tr>
            <tr><td><code>{@link #FloatingActionButton_fab_radius com.imaniac.tictactoe:fab_radius}</code></td><td></td></tr>
-           <tr><td><code>{@link #FloatingActionButton_ripple com.imaniac.tictactoe:ripple}</code></td><td></td></tr>
            </table>
-           @see #FloatingActionButton_delayClick
            @see #FloatingActionButton_fab_animDuration
            @see #FloatingActionButton_fab_backgroundColor
            @see #FloatingActionButton_fab_elevation
@@ -7482,27 +7483,11 @@ in (inches), mm (millimeters).
            @see #FloatingActionButton_fab_iconSrc
            @see #FloatingActionButton_fab_interpolator
            @see #FloatingActionButton_fab_radius
-           @see #FloatingActionButton_ripple
          */
         public static final int[] FloatingActionButton = {
-            0x7f0100b7, 0x7f0100b8, 0x7f010168, 0x7f010169,
-            0x7f01016a, 0x7f01016b, 0x7f01016c, 0x7f01016d,
-            0x7f01016e, 0x7f01016f
+            0x7f010168, 0x7f010169, 0x7f01016a, 0x7f01016b,
+            0x7f01016c, 0x7f01016d, 0x7f01016e, 0x7f01016f
         };
-        /**
-          <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#delayClick}
-          attribute's value can be found in the {@link #FloatingActionButton} array.
-
-
-          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name com.imaniac.tictactoe:delayClick
-        */
-        public static final int FloatingActionButton_delayClick = 1;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#fab_animDuration}
           attribute's value can be found in the {@link #FloatingActionButton} array.
@@ -7513,7 +7498,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be an integer value, such as "<code>100</code>".
           @attr name com.imaniac.tictactoe:fab_animDuration
         */
-        public static final int FloatingActionButton_fab_animDuration = 9;
+        public static final int FloatingActionButton_fab_animDuration = 7;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#fab_backgroundColor}
           attribute's value can be found in the {@link #FloatingActionButton} array.
@@ -7525,7 +7510,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name com.imaniac.tictactoe:fab_backgroundColor
         */
-        public static final int FloatingActionButton_fab_backgroundColor = 2;
+        public static final int FloatingActionButton_fab_backgroundColor = 0;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#fab_elevation}
           attribute's value can be found in the {@link #FloatingActionButton} array.
@@ -7538,7 +7523,7 @@ Available units are: px (pixels), dp (density-independent pixels), sp (scaled pi
 in (inches), mm (millimeters).
           @attr name com.imaniac.tictactoe:fab_elevation
         */
-        public static final int FloatingActionButton_fab_elevation = 4;
+        public static final int FloatingActionButton_fab_elevation = 2;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#fab_iconLineMorphing}
           attribute's value can be found in the {@link #FloatingActionButton} array.
@@ -7548,7 +7533,7 @@ in (inches), mm (millimeters).
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.imaniac.tictactoe:fab_iconLineMorphing
         */
-        public static final int FloatingActionButton_fab_iconLineMorphing = 6;
+        public static final int FloatingActionButton_fab_iconLineMorphing = 4;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#fab_iconSize}
           attribute's value can be found in the {@link #FloatingActionButton} array.
@@ -7561,7 +7546,7 @@ Available units are: px (pixels), dp (density-independent pixels), sp (scaled pi
 in (inches), mm (millimeters).
           @attr name com.imaniac.tictactoe:fab_iconSize
         */
-        public static final int FloatingActionButton_fab_iconSize = 7;
+        public static final int FloatingActionButton_fab_iconSize = 5;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#fab_iconSrc}
           attribute's value can be found in the {@link #FloatingActionButton} array.
@@ -7571,7 +7556,7 @@ in (inches), mm (millimeters).
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.imaniac.tictactoe:fab_iconSrc
         */
-        public static final int FloatingActionButton_fab_iconSrc = 5;
+        public static final int FloatingActionButton_fab_iconSrc = 3;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#fab_interpolator}
           attribute's value can be found in the {@link #FloatingActionButton} array.
@@ -7581,7 +7566,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.imaniac.tictactoe:fab_interpolator
         */
-        public static final int FloatingActionButton_fab_interpolator = 8;
+        public static final int FloatingActionButton_fab_interpolator = 6;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#fab_radius}
           attribute's value can be found in the {@link #FloatingActionButton} array.
@@ -7594,17 +7579,7 @@ Available units are: px (pixels), dp (density-independent pixels), sp (scaled pi
 in (inches), mm (millimeters).
           @attr name com.imaniac.tictactoe:fab_radius
         */
-        public static final int FloatingActionButton_fab_radius = 3;
-        /**
-          <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#ripple}
-          attribute's value can be found in the {@link #FloatingActionButton} array.
-
-
-          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.imaniac.tictactoe:ripple
-        */
-        public static final int FloatingActionButton_ripple = 0;
+        public static final int FloatingActionButton_fab_radius = 1;
         /** Attributes that can be used with a LineMorphingDrawable.
            <p>Includes the following attributes:</p>
            <table>
@@ -9083,13 +9058,13 @@ in (inches), mm (millimeters).
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #RippleDrawable_rd_background com.imaniac.tictactoe:rd_background}</code></td><td></td></tr>
            <tr><td><code>{@link #RippleDrawable_rd_backgroundAnimDuration com.imaniac.tictactoe:rd_backgroundAnimDuration}</code></td><td></td></tr>
            <tr><td><code>{@link #RippleDrawable_rd_backgroundColor com.imaniac.tictactoe:rd_backgroundColor}</code></td><td></td></tr>
            <tr><td><code>{@link #RippleDrawable_rd_bottomLeftCornerRadius com.imaniac.tictactoe:rd_bottomLeftCornerRadius}</code></td><td></td></tr>
            <tr><td><code>{@link #RippleDrawable_rd_bottomPadding com.imaniac.tictactoe:rd_bottomPadding}</code></td><td></td></tr>
            <tr><td><code>{@link #RippleDrawable_rd_bottomRightCornerRadius com.imaniac.tictactoe:rd_bottomRightCornerRadius}</code></td><td></td></tr>
            <tr><td><code>{@link #RippleDrawable_rd_cornerRadius com.imaniac.tictactoe:rd_cornerRadius}</code></td><td></td></tr>
+           <tr><td><code>{@link #RippleDrawable_rd_delayClick com.imaniac.tictactoe:rd_delayClick}</code></td><td></td></tr>
            <tr><td><code>{@link #RippleDrawable_rd_inInterpolator com.imaniac.tictactoe:rd_inInterpolator}</code></td><td></td></tr>
            <tr><td><code>{@link #RippleDrawable_rd_leftPadding com.imaniac.tictactoe:rd_leftPadding}</code></td><td></td></tr>
            <tr><td><code>{@link #RippleDrawable_rd_maskType com.imaniac.tictactoe:rd_maskType}</code></td><td></td></tr>
@@ -9104,13 +9079,13 @@ in (inches), mm (millimeters).
            <tr><td><code>{@link #RippleDrawable_rd_topPadding com.imaniac.tictactoe:rd_topPadding}</code></td><td></td></tr>
            <tr><td><code>{@link #RippleDrawable_rd_topRightCornerRadius com.imaniac.tictactoe:rd_topRightCornerRadius}</code></td><td></td></tr>
            </table>
-           @see #RippleDrawable_rd_background
            @see #RippleDrawable_rd_backgroundAnimDuration
            @see #RippleDrawable_rd_backgroundColor
            @see #RippleDrawable_rd_bottomLeftCornerRadius
            @see #RippleDrawable_rd_bottomPadding
            @see #RippleDrawable_rd_bottomRightCornerRadius
            @see #RippleDrawable_rd_cornerRadius
+           @see #RippleDrawable_rd_delayClick
            @see #RippleDrawable_rd_inInterpolator
            @see #RippleDrawable_rd_leftPadding
            @see #RippleDrawable_rd_maskType
@@ -9133,18 +9108,6 @@ in (inches), mm (millimeters).
             0x7f0100eb, 0x7f0100ec, 0x7f0100ed, 0x7f0100ee
         };
         /**
-          <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#rd_background}
-          attribute's value can be found in the {@link #RippleDrawable} array.
-
-
-          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
-"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          @attr name com.imaniac.tictactoe:rd_background
-        */
-        public static final int RippleDrawable_rd_background = 0;
-        /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#rd_backgroundAnimDuration}
           attribute's value can be found in the {@link #RippleDrawable} array.
 
@@ -9154,7 +9117,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be an integer value, such as "<code>100</code>".
           @attr name com.imaniac.tictactoe:rd_backgroundAnimDuration
         */
-        public static final int RippleDrawable_rd_backgroundAnimDuration = 2;
+        public static final int RippleDrawable_rd_backgroundAnimDuration = 1;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#rd_backgroundColor}
           attribute's value can be found in the {@link #RippleDrawable} array.
@@ -9166,7 +9129,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name com.imaniac.tictactoe:rd_backgroundColor
         */
-        public static final int RippleDrawable_rd_backgroundColor = 1;
+        public static final int RippleDrawable_rd_backgroundColor = 0;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#rd_bottomLeftCornerRadius}
           attribute's value can be found in the {@link #RippleDrawable} array.
@@ -9179,7 +9142,7 @@ Available units are: px (pixels), dp (density-independent pixels), sp (scaled pi
 in (inches), mm (millimeters).
           @attr name com.imaniac.tictactoe:rd_bottomLeftCornerRadius
         */
-        public static final int RippleDrawable_rd_bottomLeftCornerRadius = 13;
+        public static final int RippleDrawable_rd_bottomLeftCornerRadius = 12;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#rd_bottomPadding}
           attribute's value can be found in the {@link #RippleDrawable} array.
@@ -9192,7 +9155,7 @@ Available units are: px (pixels), dp (density-independent pixels), sp (scaled pi
 in (inches), mm (millimeters).
           @attr name com.imaniac.tictactoe:rd_bottomPadding
         */
-        public static final int RippleDrawable_rd_bottomPadding = 19;
+        public static final int RippleDrawable_rd_bottomPadding = 18;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#rd_bottomRightCornerRadius}
           attribute's value can be found in the {@link #RippleDrawable} array.
@@ -9205,7 +9168,7 @@ Available units are: px (pixels), dp (density-independent pixels), sp (scaled pi
 in (inches), mm (millimeters).
           @attr name com.imaniac.tictactoe:rd_bottomRightCornerRadius
         */
-        public static final int RippleDrawable_rd_bottomRightCornerRadius = 14;
+        public static final int RippleDrawable_rd_bottomRightCornerRadius = 13;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#rd_cornerRadius}
           attribute's value can be found in the {@link #RippleDrawable} array.
@@ -9218,7 +9181,21 @@ Available units are: px (pixels), dp (density-independent pixels), sp (scaled pi
 in (inches), mm (millimeters).
           @attr name com.imaniac.tictactoe:rd_cornerRadius
         */
-        public static final int RippleDrawable_rd_cornerRadius = 10;
+        public static final int RippleDrawable_rd_cornerRadius = 9;
+        /**
+          <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#rd_delayClick}
+          attribute's value can be found in the {@link #RippleDrawable} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.imaniac.tictactoe:rd_delayClick
+        */
+        public static final int RippleDrawable_rd_delayClick = 19;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#rd_inInterpolator}
           attribute's value can be found in the {@link #RippleDrawable} array.
@@ -9228,7 +9205,7 @@ in (inches), mm (millimeters).
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.imaniac.tictactoe:rd_inInterpolator
         */
-        public static final int RippleDrawable_rd_inInterpolator = 6;
+        public static final int RippleDrawable_rd_inInterpolator = 5;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#rd_leftPadding}
           attribute's value can be found in the {@link #RippleDrawable} array.
@@ -9241,7 +9218,7 @@ Available units are: px (pixels), dp (density-independent pixels), sp (scaled pi
 in (inches), mm (millimeters).
           @attr name com.imaniac.tictactoe:rd_leftPadding
         */
-        public static final int RippleDrawable_rd_leftPadding = 16;
+        public static final int RippleDrawable_rd_leftPadding = 15;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#rd_maskType}
           attribute's value can be found in the {@link #RippleDrawable} array.
@@ -9264,7 +9241,7 @@ containing a value of this type.
 </table>
           @attr name com.imaniac.tictactoe:rd_maskType
         */
-        public static final int RippleDrawable_rd_maskType = 8;
+        public static final int RippleDrawable_rd_maskType = 7;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#rd_maxRippleRadius}
           attribute's value can be found in the {@link #RippleDrawable} array.
@@ -9286,7 +9263,7 @@ in (inches), mm (millimeters).
 </table>
           @attr name com.imaniac.tictactoe:rd_maxRippleRadius
         */
-        public static final int RippleDrawable_rd_maxRippleRadius = 3;
+        public static final int RippleDrawable_rd_maxRippleRadius = 2;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#rd_outInterpolator}
           attribute's value can be found in the {@link #RippleDrawable} array.
@@ -9296,7 +9273,7 @@ in (inches), mm (millimeters).
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.imaniac.tictactoe:rd_outInterpolator
         */
-        public static final int RippleDrawable_rd_outInterpolator = 7;
+        public static final int RippleDrawable_rd_outInterpolator = 6;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#rd_padding}
           attribute's value can be found in the {@link #RippleDrawable} array.
@@ -9309,7 +9286,7 @@ Available units are: px (pixels), dp (density-independent pixels), sp (scaled pi
 in (inches), mm (millimeters).
           @attr name com.imaniac.tictactoe:rd_padding
         */
-        public static final int RippleDrawable_rd_padding = 15;
+        public static final int RippleDrawable_rd_padding = 14;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#rd_rightPadding}
           attribute's value can be found in the {@link #RippleDrawable} array.
@@ -9322,7 +9299,7 @@ Available units are: px (pixels), dp (density-independent pixels), sp (scaled pi
 in (inches), mm (millimeters).
           @attr name com.imaniac.tictactoe:rd_rightPadding
         */
-        public static final int RippleDrawable_rd_rightPadding = 18;
+        public static final int RippleDrawable_rd_rightPadding = 17;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#rd_rippleAnimDuration}
           attribute's value can be found in the {@link #RippleDrawable} array.
@@ -9333,7 +9310,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be an integer value, such as "<code>100</code>".
           @attr name com.imaniac.tictactoe:rd_rippleAnimDuration
         */
-        public static final int RippleDrawable_rd_rippleAnimDuration = 5;
+        public static final int RippleDrawable_rd_rippleAnimDuration = 4;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#rd_rippleColor}
           attribute's value can be found in the {@link #RippleDrawable} array.
@@ -9345,7 +9322,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name com.imaniac.tictactoe:rd_rippleColor
         */
-        public static final int RippleDrawable_rd_rippleColor = 4;
+        public static final int RippleDrawable_rd_rippleColor = 3;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#rd_rippleType}
           attribute's value can be found in the {@link #RippleDrawable} array.
@@ -9368,7 +9345,7 @@ containing a value of this type.
 </table>
           @attr name com.imaniac.tictactoe:rd_rippleType
         */
-        public static final int RippleDrawable_rd_rippleType = 9;
+        public static final int RippleDrawable_rd_rippleType = 8;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#rd_topLeftCornerRadius}
           attribute's value can be found in the {@link #RippleDrawable} array.
@@ -9381,7 +9358,7 @@ Available units are: px (pixels), dp (density-independent pixels), sp (scaled pi
 in (inches), mm (millimeters).
           @attr name com.imaniac.tictactoe:rd_topLeftCornerRadius
         */
-        public static final int RippleDrawable_rd_topLeftCornerRadius = 11;
+        public static final int RippleDrawable_rd_topLeftCornerRadius = 10;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#rd_topPadding}
           attribute's value can be found in the {@link #RippleDrawable} array.
@@ -9394,7 +9371,7 @@ Available units are: px (pixels), dp (density-independent pixels), sp (scaled pi
 in (inches), mm (millimeters).
           @attr name com.imaniac.tictactoe:rd_topPadding
         */
-        public static final int RippleDrawable_rd_topPadding = 17;
+        public static final int RippleDrawable_rd_topPadding = 16;
         /**
           <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#rd_topRightCornerRadius}
           attribute's value can be found in the {@link #RippleDrawable} array.
@@ -9407,24 +9384,24 @@ Available units are: px (pixels), dp (density-independent pixels), sp (scaled pi
 in (inches), mm (millimeters).
           @attr name com.imaniac.tictactoe:rd_topRightCornerRadius
         */
-        public static final int RippleDrawable_rd_topRightCornerRadius = 12;
+        public static final int RippleDrawable_rd_topRightCornerRadius = 11;
         /** Attributes that can be used with a RippleView.
            <p>Includes the following attributes:</p>
            <table>
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #RippleView_delayClick com.imaniac.tictactoe:delayClick}</code></td><td></td></tr>
-           <tr><td><code>{@link #RippleView_ripple com.imaniac.tictactoe:ripple}</code></td><td></td></tr>
+           <tr><td><code>{@link #RippleView_rd_enable com.imaniac.tictactoe:rd_enable}</code></td><td></td></tr>
+           <tr><td><code>{@link #RippleView_rd_style com.imaniac.tictactoe:rd_style}</code></td><td></td></tr>
            </table>
-           @see #RippleView_delayClick
-           @see #RippleView_ripple
+           @see #RippleView_rd_enable
+           @see #RippleView_rd_style
          */
         public static final int[] RippleView = {
             0x7f0100b7, 0x7f0100b8
         };
         /**
-          <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#delayClick}
+          <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#rd_enable}
           attribute's value can be found in the {@link #RippleView} array.
 
 
@@ -9434,19 +9411,19 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.imaniac.tictactoe:delayClick
+          @attr name com.imaniac.tictactoe:rd_enable
         */
-        public static final int RippleView_delayClick = 1;
+        public static final int RippleView_rd_enable = 1;
         /**
-          <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#ripple}
+          <p>This symbol is the offset where the {@link com.imaniac.tictactoe.R.attr#rd_style}
           attribute's value can be found in the {@link #RippleView} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.imaniac.tictactoe:ripple
+          @attr name com.imaniac.tictactoe:rd_style
         */
-        public static final int RippleView_ripple = 0;
+        public static final int RippleView_rd_style = 0;
         /** Attributes that can be used with a SearchView.
            <p>Includes the following attributes:</p>
            <table>

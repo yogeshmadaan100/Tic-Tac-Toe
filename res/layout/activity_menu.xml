@@ -9,7 +9,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="scottmd3.tictactoe.MenuActivity"
     android:background="#ffffff" 
-    xmlns:app1="http://schemas.android.com/apk/res/com.imaniac.tictactoe"
     android:fillViewport="true"
     android:scrollbarStyle="outsideOverlay">
 
@@ -26,9 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minWidth="128dp"
-            app:ripple="@style/FlatWaveButtonRippleStyle"
-            app:delayClick="false"
-            app:spn_labelEnable="true"
+          	app:spn_labelEnable="true"
             app:spn_label="Select No of Players" 
             app:spn_arrowSwitchMode="true"
             android:layout_margin="20dp"
@@ -40,8 +37,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minWidth="128dp"
-            app:ripple="@style/FlatWaveButtonRippleStyle"
-            app:delayClick="false"
             app:spn_labelEnable="true"
             app:spn_label="Select Difficulty Level"
             app:spn_arrowSwitchMode="true"
@@ -57,8 +52,7 @@
 		        android:textColor="#000000"
 		        android:textAppearance="@style/Base.TextAppearance.AppCompat.Button"
 		        android:text="Play"
-		        app:ripple="@style/RaiseColorButtonRippleStyle"
-		        app:delayClick="true"/>
+		        />
 
        
 
