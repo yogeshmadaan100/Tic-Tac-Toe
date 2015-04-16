@@ -693,7 +693,7 @@ int id action_menu_presenter 0x7f0b0006
 int id action_mode_bar 0x7f0b004e
 int id action_mode_bar_stub 0x7f0b004d
 int id action_mode_close_button 0x7f0b0040
-int id action_settings 0x7f0b0074
+int id action_settings 0x7f0b0078
 int id activity_chooser_view_content 0x7f0b0041
 int id always 0x7f0b0014
 int id beginning 0x7f0b001b
@@ -735,6 +735,10 @@ int id image 0x7f0b0043
 int id indeterminate 0x7f0b0020
 int id information 0x7f0b006c
 int id italic 0x7f0b0031
+int id line1 0x7f0b0075
+int id line2 0x7f0b0076
+int id line3 0x7f0b0073
+int id line4 0x7f0b0074
 int id listMode 0x7f0b000a
 int id list_item 0x7f0b0045
 int id marquee 0x7f0b0034
@@ -759,7 +763,7 @@ int id query 0x7f0b0021
 int id radio 0x7f0b004b
 int id rectangle 0x7f0b0027
 int id round 0x7f0b002b
-int id row_spn_tv 0x7f0b0073
+int id row_spn_tv 0x7f0b0077
 int id scroll 0x7f0b0033
 int id search_badge 0x7f0b0055
 int id search_bar 0x7f0b0054

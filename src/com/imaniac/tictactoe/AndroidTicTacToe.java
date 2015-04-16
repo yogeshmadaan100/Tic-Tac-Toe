@@ -1,6 +1,9 @@
 package com.imaniac.tictactoe;
 
-import android.app.Activity;
+import android.animation.Animator;
+import android.animation.Animator.AnimatorListener;
+import android.animation.ValueAnimator;
+import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -50,6 +53,10 @@ public class AndroidTicTacToe extends ActionBarActivity {
 
 	private boolean mGameOver;
 
+	/** Animation Variables */
+	ValueAnimator vanim,vanim2,vanim3,vanim4;
+	View line1,line2,line3,line4;
+	
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -62,7 +69,185 @@ public class AndroidTicTacToe extends ActionBarActivity {
 		mBoardButtons = new Button[TicTacToeGame.BOARD_SIZE];
 		for (int i = 0; i < mBoardButtons.length; i++)
 			mBoardButtons[i] = (Button) findViewById(BUTTON_IDS[i]);
+		//getlines
+		line1=(View)findViewById(R.id.line1);
+		line2=(View)findViewById(R.id.line2);
+		line3=(View)findViewById(R.id.line3);
+		line4=(View)findViewById(R.id.line4);
+		vanim= ValueAnimator.ofInt(0,900);
+		vanim.setDuration(1000);
+		vanim2= ValueAnimator.ofInt(0,900);
+		vanim2.setDuration(1000);
+		vanim3= ValueAnimator.ofInt(0,900);
+		vanim3.setDuration(1000);
+		vanim4= ValueAnimator.ofInt(0,900);
+		vanim4.setDuration(1000);
+		vanim.addListener(new AnimatorListener() {
+			
+			@Override
+			public void onAnimationStart(Animator animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationRepeat(Animator animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationEnd(Animator animation) {
+				// TODO Auto-generated method stub
+				Log.e("animation", "end");
+				vanim2.start();
+				
+			}
+			
+			@Override
+			public void onAnimationCancel(Animator animation) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		vanim.addUpdateListener(new AnimatorUpdateListener() {
 
+		        @Override
+		        public void onAnimationUpdate(ValueAnimator animation) {
+		            int animProgress = (Integer) animation.getAnimatedValue();
+		           // Log.e("update", ""+animProgress);
+		            android.widget.LinearLayout.LayoutParams  layoutParams = (android.widget.LinearLayout.LayoutParams) line1.getLayoutParams();
+			             layoutParams.height = (int) (animProgress);
+			             Log.e("height", ""+layoutParams.height);
+		            line1.setLayoutParams(layoutParams);
+		        }
+		    });
+		vanim.start();
+		vanim2.addListener(new AnimatorListener() {
+			
+			@Override
+			public void onAnimationStart(Animator animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationRepeat(Animator animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationEnd(Animator animation) {
+				// TODO Auto-generated method stub
+				Log.e("animation", "end");
+			vanim3.start();
+				
+			}
+			
+			@Override
+			public void onAnimationCancel(Animator animation) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		vanim2.addUpdateListener(new AnimatorUpdateListener() {
+
+		        @Override
+		        public void onAnimationUpdate(ValueAnimator animation) {
+		            int animProgress = (Integer) animation.getAnimatedValue();
+		           // Log.e("update", ""+animProgress);
+		            android.widget.LinearLayout.LayoutParams  layoutParams = (android.widget.LinearLayout.LayoutParams) line2.getLayoutParams();
+			             layoutParams.height = (int) (animProgress);
+			             Log.e("height", ""+layoutParams.height);
+		            line2.setLayoutParams(layoutParams);
+		        }
+		    });
+		
+	vanim3.addListener(new AnimatorListener() {
+			
+			@Override
+			public void onAnimationStart(Animator animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationRepeat(Animator animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationEnd(Animator animation) {
+				// TODO Auto-generated method stub
+				Log.e("animation", "end");
+				vanim4.start();
+				
+			}
+			
+			@Override
+			public void onAnimationCancel(Animator animation) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		vanim3.addUpdateListener(new AnimatorUpdateListener() {
+
+		        @Override
+		        public void onAnimationUpdate(ValueAnimator animation) {
+		            int animProgress = (Integer) animation.getAnimatedValue();
+		           // Log.e("update", ""+animProgress);
+		            android.widget.LinearLayout.LayoutParams  layoutParams = (android.widget.LinearLayout.LayoutParams) line3.getLayoutParams();
+			             layoutParams.width = (int) (animProgress);
+			             Log.e("height", ""+layoutParams.width);
+		            line3.setLayoutParams(layoutParams);
+		        }
+		    });
+		
+		vanim4.addListener(new AnimatorListener() {
+			
+			@Override
+			public void onAnimationStart(Animator animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationRepeat(Animator animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationEnd(Animator animation) {
+				// TODO Auto-generated method stub
+				Log.e("animation", "end");
+				
+			}
+			
+			@Override
+			public void onAnimationCancel(Animator animation) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		vanim4.addUpdateListener(new AnimatorUpdateListener() {
+
+		        @Override
+		        public void onAnimationUpdate(ValueAnimator animation) {
+		            int animProgress = (Integer) animation.getAnimatedValue();
+		           // Log.e("update", ""+animProgress);
+		            android.widget.LinearLayout.LayoutParams  layoutParams = (android.widget.LinearLayout.LayoutParams) line4.getLayoutParams();
+			             layoutParams.width = (int) (animProgress);
+			             Log.e("height", ""+layoutParams.width);
+		            line4.setLayoutParams(layoutParams);
+		        }
+		    });
 		// get the TextViews
 		mInfoTextView = (TextView) findViewById(R.id.information);
 		mHumanScoreTextView = (TextView) findViewById(R.id.player_score);

@@ -14,7 +14,7 @@
     <string name="result_computer_wins">Android won!</string>
     <string name="score_label_human">Human</string>
     <string name="score_label_tie">Ties</string>
-    <string name="score_label_computer">Android</string>
+    <string name="score_label_computer">Computer</string>
     <string name="infoforTut">This is the starter code for turoial 3</string>
     <string name="first_computer">Android Goes First</string>
     <string name="new_game">Start New Game Now</string>

@@ -3851,7 +3851,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f0b004e;
         public static final int action_mode_bar_stub=0x7f0b004d;
         public static final int action_mode_close_button=0x7f0b0040;
-        public static final int action_settings=0x7f0b0074;
+        public static final int action_settings=0x7f0b0078;
         public static final int activity_chooser_view_content=0x7f0b0041;
         public static final int always=0x7f0b0014;
         public static final int beginning=0x7f0b001b;
@@ -3893,6 +3893,10 @@ containing a value of this type.
         public static final int indeterminate=0x7f0b0020;
         public static final int information=0x7f0b006c;
         public static final int italic=0x7f0b0031;
+        public static final int line1=0x7f0b0075;
+        public static final int line2=0x7f0b0076;
+        public static final int line3=0x7f0b0073;
+        public static final int line4=0x7f0b0074;
         public static final int listMode=0x7f0b000a;
         public static final int list_item=0x7f0b0045;
         public static final int marquee=0x7f0b0034;
@@ -3917,7 +3921,7 @@ containing a value of this type.
         public static final int radio=0x7f0b004b;
         public static final int rectangle=0x7f0b0027;
         public static final int round=0x7f0b002b;
-        public static final int row_spn_tv=0x7f0b0073;
+        public static final int row_spn_tv=0x7f0b0077;
         public static final int scroll=0x7f0b0033;
         public static final int search_badge=0x7f0b0055;
         public static final int search_bar=0x7f0b0054;
