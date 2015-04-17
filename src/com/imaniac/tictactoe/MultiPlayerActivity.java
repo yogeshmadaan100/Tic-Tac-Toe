@@ -1,18 +1,32 @@
 package com.imaniac.tictactoe;
 
-import android.app.Activity;
+import android.animation.Animator;
+import android.animation.Animator.AnimatorListener;
+import android.animation.ValueAnimator;
+import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources.Theme;
 import android.graphics.Color;
+import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.GravityEnum;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.imaniac.tictactoe.MultiTicTacToeGame.DifficultyLevel;
 import com.rey.material.app.DialogFragment;
 import com.rey.material.app.SimpleDialog;
@@ -40,7 +54,8 @@ public class MultiPlayerActivity extends ActionBarActivity {
 
 	// Buttons making up the board
 	private Button mBoardButtons[];
-
+	//fonts
+	Typeface arial,times;
 	// Various text displayed
 	private TextView mInfoTextView;
 	private TextView mHumanScoreTextView;
@@ -48,13 +63,17 @@ public class MultiPlayerActivity extends ActionBarActivity {
 	private TextView mTieScoreTextView;
 
 	private boolean mGameOver;
-
+	ValueAnimator vanim,vanim2,vanim3,vanim4;
+	View line1,line2,line3,line4;
+	
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		getSupportActionBar().setDisplayShowTitleEnabled(false);
+		getSupportActionBar().setDisplayShowTitleEnabled(true);
+		getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4169e1")));
+		
 		Bundle b =getIntent().getExtras();
 		int dif=b.getInt("difficulty");
 		
@@ -65,11 +84,195 @@ public class MultiPlayerActivity extends ActionBarActivity {
 		computer_Name.setText("Player 2");
 		TextView computer_Name1=(TextView)findViewById(R.id.player_score_label);
 		computer_Name1.setText("Player 1");
+		line1=(View)findViewById(R.id.line1);
+		line2=(View)findViewById(R.id.line2);
+		line3=(View)findViewById(R.id.line3);
+		line4=(View)findViewById(R.id.line4);
+		vanim= ValueAnimator.ofInt(0,900);
+		vanim.setDuration(700);
+		vanim2= ValueAnimator.ofInt(0,900);
+		vanim2.setDuration(700);
+		vanim3= ValueAnimator.ofInt(0,900);
+		vanim3.setDuration(700);
+		vanim4= ValueAnimator.ofInt(0,900);
+		vanim4.setDuration(700);
+		vanim.addListener(new AnimatorListener() {
+			
+			@Override
+			public void onAnimationStart(Animator animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationRepeat(Animator animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationEnd(Animator animation) {
+				// TODO Auto-generated method stub
+				Log.e("animation", "end");
+				vanim2.start();
+				
+			}
+			
+			@Override
+			public void onAnimationCancel(Animator animation) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		vanim.addUpdateListener(new AnimatorUpdateListener() {
+
+		        @Override
+		        public void onAnimationUpdate(ValueAnimator animation) {
+		            int animProgress = (Integer) animation.getAnimatedValue();
+		           // Log.e("update", ""+animProgress);
+		            android.widget.LinearLayout.LayoutParams  layoutParams = (android.widget.LinearLayout.LayoutParams) line1.getLayoutParams();
+			             layoutParams.height = (int) (animProgress);
+			             Log.e("height", ""+layoutParams.height);
+		            line1.setLayoutParams(layoutParams);
+		        }
+		    });
+		vanim.start();
+		vanim2.addListener(new AnimatorListener() {
+			
+			@Override
+			public void onAnimationStart(Animator animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationRepeat(Animator animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationEnd(Animator animation) {
+				// TODO Auto-generated method stub
+				Log.e("animation", "end");
+			vanim3.start();
+				
+			}
+			
+			@Override
+			public void onAnimationCancel(Animator animation) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		vanim2.addUpdateListener(new AnimatorUpdateListener() {
+
+		        @Override
+		        public void onAnimationUpdate(ValueAnimator animation) {
+		            int animProgress = (Integer) animation.getAnimatedValue();
+		           // Log.e("update", ""+animProgress);
+		            android.widget.LinearLayout.LayoutParams  layoutParams = (android.widget.LinearLayout.LayoutParams) line2.getLayoutParams();
+			             layoutParams.height = (int) (animProgress);
+			             Log.e("height", ""+layoutParams.height);
+		            line2.setLayoutParams(layoutParams);
+		        }
+		    });
+		
+	vanim3.addListener(new AnimatorListener() {
+			
+			@Override
+			public void onAnimationStart(Animator animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationRepeat(Animator animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationEnd(Animator animation) {
+				// TODO Auto-generated method stub
+				Log.e("animation", "end");
+				vanim4.start();
+				
+			}
+			
+			@Override
+			public void onAnimationCancel(Animator animation) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		vanim3.addUpdateListener(new AnimatorUpdateListener() {
+
+		        @Override
+		        public void onAnimationUpdate(ValueAnimator animation) {
+		            int animProgress = (Integer) animation.getAnimatedValue();
+		           // Log.e("update", ""+animProgress);
+		            android.widget.LinearLayout.LayoutParams  layoutParams = (android.widget.LinearLayout.LayoutParams) line3.getLayoutParams();
+			             layoutParams.width = (int) (animProgress);
+			             Log.e("height", ""+layoutParams.width);
+		            line3.setLayoutParams(layoutParams);
+		        }
+		    });
+		
+		vanim4.addListener(new AnimatorListener() {
+			
+			@Override
+			public void onAnimationStart(Animator animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationRepeat(Animator animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationEnd(Animator animation) {
+				// TODO Auto-generated method stub
+				Log.e("animation", "end");
+				
+			}
+			
+			@Override
+			public void onAnimationCancel(Animator animation) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		vanim4.addUpdateListener(new AnimatorUpdateListener() {
+
+		        @Override
+		        public void onAnimationUpdate(ValueAnimator animation) {
+		            int animProgress = (Integer) animation.getAnimatedValue();
+		           // Log.e("update", ""+animProgress);
+		            android.widget.LinearLayout.LayoutParams  layoutParams = (android.widget.LinearLayout.LayoutParams) line4.getLayoutParams();
+			             layoutParams.width = (int) (animProgress);
+			             Log.e("height", ""+layoutParams.width);
+		            line4.setLayoutParams(layoutParams);
+		        }
+		    });
 		// get the TextViews
 		mInfoTextView = (TextView) findViewById(R.id.information);
 		mHumanScoreTextView = (TextView) findViewById(R.id.player_score);
 		mComputerScoreTextView = (TextView) findViewById(R.id.computer_score);
 		mTieScoreTextView = (TextView) findViewById(R.id.tie_score);
+		arial=Typeface.createFromAsset(getAssets(), "fonts/arial.ttf");
+		times=Typeface.createFromAsset(getAssets(), "fonts/times.ttf");
+		mInfoTextView.setTypeface(arial);
+		mHumanScoreTextView.setTypeface(times);
+		mComputerScoreTextView.setTypeface(times);
+		mTieScoreTextView.setTypeface(times);
 		mGame = new MultiTicTacToeGame();
 		switch (dif) {
 		case 0:
@@ -135,55 +338,68 @@ public class MultiPlayerActivity extends ActionBarActivity {
 		mGameOver = true;
 		for (int i = 0; i < mBoardButtons.length; i++)
 			mBoardButtons[i].setEnabled(false);
+		new MaterialDialog.Builder(this)
+        .title("Game Over")
+        .content(""+mInfoTextView.getText().toString())
+        .positiveText("Play Again")
+        .negativeText("Exit")
+        .titleGravity(GravityEnum.CENTER)
+        .contentColorRes(android.R.color.white)
+        .dividerColor(R.color.material_blue)
+        .backgroundColorRes(R.color.material_blue_grey_800)
+         .titleColorRes(R.color.material_blue)
+         .theme(com.afollestad.materialdialogs.Theme.LIGHT)
+        .dividerColorRes(R.color.material_blue)
+         .positiveColor(Color.WHITE)
+        .negativeColorAttr(android.R.attr.textColorSecondaryInverse)
+        .callback(new MaterialDialog.ButtonCallback() {
+            @Override
+            public void onPositive(MaterialDialog dialog) {
+            	
+            	 startNewGame();
+             	  
+            }
+
+            @Override
+            public void onNeutral(MaterialDialog dialog) {
+                Toast.makeText(getApplicationContext(), "Neutral", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNegative(MaterialDialog dialog) {
+            	onBackPressed();
+            }
+        })
+        .show();
 		
-		com.rey.material.app.Dialog.Builder builder=null;
-		  builder = new SimpleDialog.Builder(R.style.SimpleDialog){
-            @Override
-            public void onPositiveActionClicked(DialogFragment fragment) {
-                startNewGame();
-          	  fragment.dismiss();
-            }
-
-            @Override
-            public void onNegativeActionClicked(DialogFragment fragment) {
-                
-          	  fragment.dismiss();
-          	  onBackPressed();
-            }
-        };
-
-        ((SimpleDialog.Builder)builder).message(""+mInfoTextView.getText().toString())
-                .positiveAction("Play Again")
-                .negativeAction("Exit");
-        
-        DialogFragment fragment=DialogFragment.newInstance(builder);
-        fragment.show(getSupportFragmentManager(), null);
 	}
 
-	/*@Override
+	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 		Log.d(TAG, "In onCreateOptionsMenu. What is up?");
 		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.options_menu, menu);
+		inflater.inflate(R.menu.main, menu);
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case R.id.new_game:
+		case R.id.action_restart:
 			startNewGame();
 			return true;
-		case R.id.ai_difficulty:
-			showDialog(DIALOG_DIFFICULTY_ID);
+		case R.id.action_share:
+					 Intent sendIntent = new Intent();
+			      	 sendIntent.setAction(Intent.ACTION_SEND);
+			       	 sendIntent.putExtra(Intent.EXTRA_TEXT, "Hi I am using Tic Tac Toe - Fun Reloaded .You must also try https://play.google.com/store/apps/details?id=com.imaniac.tictactoe");
+			       	 sendIntent.setType("text/plain");
+			       	 startActivity(sendIntent);
 			return true;
-		case R.id.quit:
-			showDialog(DIALOG_QUIT_ID);
-			return true;
+		
 		}
 		return false;
-	}*/
+	}
 
 	// Handles clicks on the game baord buttons
 	private class ButtonClickListener implements View.OnClickListener {

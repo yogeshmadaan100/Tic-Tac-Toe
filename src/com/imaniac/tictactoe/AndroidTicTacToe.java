@@ -9,14 +9,21 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.GravityEnum;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.imaniac.tictactoe.TicTacToeGame.DifficultyLevel;
 import com.rey.material.app.DialogFragment;
 import com.rey.material.app.SimpleDialog;
@@ -44,7 +51,8 @@ public class AndroidTicTacToe extends ActionBarActivity {
 
 	// Buttons making up the board
 	private Button mBoardButtons[];
-
+//fonts
+	Typeface arial,times;
 	// Various text displayed
 	private TextView mInfoTextView;
 	private TextView mHumanScoreTextView;
@@ -62,7 +70,8 @@ public class AndroidTicTacToe extends ActionBarActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		//getSupportActionBar().setDisplayShowTitleEnabled(false);
+		getSupportActionBar().setDisplayShowTitleEnabled(true);
+		getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4169e1")));
 		Bundle b =getIntent().getExtras();
 		int dif=b.getInt("difficulty");
 		
@@ -75,13 +84,13 @@ public class AndroidTicTacToe extends ActionBarActivity {
 		line3=(View)findViewById(R.id.line3);
 		line4=(View)findViewById(R.id.line4);
 		vanim= ValueAnimator.ofInt(0,900);
-		vanim.setDuration(1000);
+		vanim.setDuration(700);
 		vanim2= ValueAnimator.ofInt(0,900);
-		vanim2.setDuration(1000);
+		vanim2.setDuration(700);
 		vanim3= ValueAnimator.ofInt(0,900);
-		vanim3.setDuration(1000);
+		vanim3.setDuration(700);
 		vanim4= ValueAnimator.ofInt(0,900);
-		vanim4.setDuration(1000);
+		vanim4.setDuration(700);
 		vanim.addListener(new AnimatorListener() {
 			
 			@Override
@@ -253,6 +262,12 @@ public class AndroidTicTacToe extends ActionBarActivity {
 		mHumanScoreTextView = (TextView) findViewById(R.id.player_score);
 		mComputerScoreTextView = (TextView) findViewById(R.id.computer_score);
 		mTieScoreTextView = (TextView) findViewById(R.id.tie_score);
+		arial=Typeface.createFromAsset(getAssets(), "fonts/arial.ttf");
+		times=Typeface.createFromAsset(getAssets(), "fonts/times.ttf");
+		mInfoTextView.setTypeface(arial);
+		mHumanScoreTextView.setTypeface(times);
+		mComputerScoreTextView.setTypeface(times);
+		mTieScoreTextView.setTypeface(times);
 		mGame = new TicTacToeGame();
 		switch (dif) {
 		case 0:
@@ -319,54 +334,67 @@ public class AndroidTicTacToe extends ActionBarActivity {
 		mGameOver = true;
 		for (int i = 0; i < mBoardButtons.length; i++)
 			mBoardButtons[i].setEnabled(false);
-		com.rey.material.app.Dialog.Builder builder=null;
-		  builder = new SimpleDialog.Builder(R.style.SimpleDialog){
-              @Override
-              public void onPositiveActionClicked(DialogFragment fragment) {
-                  startNewGame();
-            	  fragment.dismiss();
-              }
+		new MaterialDialog.Builder(this)
+        .title("Game Over")
+        .content(""+mInfoTextView.getText().toString())
+        .positiveText("Play Again")
+        .negativeText("Exit")
+        .titleGravity(GravityEnum.CENTER)
+        
+        .dividerColor(R.color.material_blue)
+        .contentColorRes(android.R.color.white)
+        .backgroundColorRes(R.color.material_grey)
+        .titleColorRes(R.color.material_blue)
+        .dividerColorRes(R.color.material_blue)
+        .positiveColor(Color.WHITE)
+        .negativeColorAttr(android.R.attr.textColorSecondaryInverse)
+        .callback(new MaterialDialog.ButtonCallback() {
+            @Override
+            public void onPositive(MaterialDialog dialog) {
+            	
+            	 startNewGame();
+             	  
+            }
 
-              @Override
-              public void onNegativeActionClicked(DialogFragment fragment) {
-                  
-            	  fragment.dismiss();
-            	  onBackPressed();
-              }
-          };
+            @Override
+            public void onNeutral(MaterialDialog dialog) {
+                Toast.makeText(getApplicationContext(), "Neutral", Toast.LENGTH_SHORT).show();
+            }
 
-          ((SimpleDialog.Builder)builder).message(""+mInfoTextView.getText().toString())
-                  .positiveAction("Play Again")
-                  .negativeAction("Exit");
-          
-          DialogFragment fragment=DialogFragment.newInstance(builder);
-          fragment.show(getSupportFragmentManager(), null);
+            @Override
+            public void onNegative(MaterialDialog dialog) {
+            	onBackPressed();
+            }
+        })
+        .show();
 	}
 
-	/*@Override
+	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 		Log.d(TAG, "In onCreateOptionsMenu. What is up?");
 		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.options_menu, menu);
+		inflater.inflate(R.menu.main, menu);
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case R.id.new_game:
+		case R.id.action_restart:
 			startNewGame();
 			return true;
-		case R.id.ai_difficulty:
-			showDialog(DIALOG_DIFFICULTY_ID);
+		case R.id.action_share:
+					 Intent sendIntent = new Intent();
+			      	 sendIntent.setAction(Intent.ACTION_SEND);
+			       	 sendIntent.putExtra(Intent.EXTRA_TEXT, "Hi I am using Tic Tac Toe - Fun Reloaded .You must also try https://play.google.com/store/apps/details?id=com.imaniac.tictactoe");
+			       	 sendIntent.setType("text/plain");
+			       	 startActivity(sendIntent);
 			return true;
-		case R.id.quit:
-			showDialog(DIALOG_QUIT_ID);
-			return true;
+		
 		}
 		return false;
-	}*/
+	}
 
 	// Handles clicks on the game baord buttons
 	private class ButtonClickListener implements View.OnClickListener {

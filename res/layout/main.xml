@@ -1,11 +1,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent" 
+    android:background="#e0e0e0">
 <TableLayout
         android:id="@+id/play_grid"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp" >
+        android:layout_marginTop="30dp" >
 
         <TableRow android:gravity="center_horizontal" >
 
@@ -13,19 +14,22 @@
                 android:id="@+id/one"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:textSize="70sp" />
+                android:textSize="70sp"
+                android:background="@null" />
 
             <Button
                 android:id="@+id/two"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:textSize="70sp" />
+                android:textSize="70sp"
+                android:background="@null" />
 
             <Button
                 android:id="@+id/three"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:textSize="70sp" />
+                android:textSize="70sp" 
+                android:background="@null"/>
         </TableRow>
 
         <TableRow android:gravity="center_horizontal" >
@@ -34,19 +38,22 @@
                 android:id="@+id/four"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:textSize="70sp" />
+                android:textSize="70sp" 
+                android:background="@null"/>
 
             <Button
                 android:id="@+id/five"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:textSize="70sp" />
+                android:textSize="70sp"
+                android:background="@null" />
 
             <Button
                 android:id="@+id/six"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:textSize="70sp" />
+                android:textSize="70sp"
+                android:background="@null" />
         </TableRow>
 
         <TableRow android:gravity="center_horizontal" >
@@ -55,111 +62,24 @@
                 android:id="@+id/seven"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:textSize="70sp" />
+                android:textSize="70sp"
+                android:background="@null" />
 
             <Button
                 android:id="@+id/eight"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:textSize="70sp" />
+                android:textSize="70sp"
+                android:background="@null" />
 
             <Button
                 android:id="@+id/nine"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:textSize="70sp" />
+                android:textSize="70sp"
+                android:background="@null" />
         </TableRow>
     </TableLayout>
-
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" 
-         android:layout_below="@+id/play_grid">
-
-        <TextView
-            android:id="@+id/information"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-           
-            android:gravity="center_horizontal"
-            android:text="@string/info_Label"
-            android:layout_marginTop="30dp"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/player_score_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/information"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="40dp"
-            android:gravity="center_horizontal"
-            android:text="@string/score_label_human"
-            android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/player_score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/information"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="40dp"
-            android:layout_toRightOf="@+id/player_score_label"
-            android:gravity="left"
-            android:text="@string/zero"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tie_score_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/player_score"
-            android:layout_below="@+id/information"
-            android:layout_centerInParent="true"
-            android:gravity="center_horizontal"
-            android:text="@string/score_label_tie"
-            android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/tie_score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/information"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="40dp"
-            android:layout_toRightOf="@+id/tie_score_label"
-            android:gravity="left"
-            android:text="@string/zero"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/computer_score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/information"
-            android:layout_below="@+id/information"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="40dp"
-            android:gravity="right"
-            android:text="@string/zero"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/computer_score_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/information"
-            android:layout_marginTop="40dp"
-            android:layout_toLeftOf="@+id/computer_score"
-            android:gravity="right"
-            android:text="@string/score_label_computer"
-            android:textSize="20dp" >
-        </TextView>
-    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -184,7 +104,7 @@
             <View 
                 android:layout_width="0dp"
                 android:layout_height="5dp"
-                android:background="#000000"
+                android:background="#1567bf"
                 android:layout_weight="0"
                 android:id="@+id/line3"/>
                 <LinearLayout
@@ -195,7 +115,7 @@
             <View 
                 android:layout_width="0dp"
                 android:layout_height="5dp"
-                android:background="#000000"
+                android:background="#1567bf"
                 android:layout_weight="0"
                 android:id="@+id/line4"/>
                     <LinearLayout
@@ -208,7 +128,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent" 
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
             
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -219,7 +140,7 @@
             <View 
                 android:layout_width="5dp"
                 android:layout_height="0dp"
-                android:background="#000000"
+                android:background="#1567bf"
                 android:layout_weight="0"
                 android:id="@+id/line1"
                 />
@@ -233,7 +154,7 @@
             <View 
                 android:layout_width="5dp"
                 android:layout_height="0dp"
-                android:background="#000000"
+                android:background="#1567bf"
                 android:layout_weight="0"
                 android:id="@+id/line2"
                 android:layout_marginRight="2dp"
@@ -247,6 +168,89 @@
             
         </LinearLayout>
 
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" >
+
+        <TextView
+            android:id="@+id/information"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center_horizontal"
+            android:text="@string/info_Label"
+            android:textSize="20sp" 
+            android:layout_marginBottom="40dp"/>
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/information"
+            android:padding="10dp"
+            android:background="#989898">
+            
+            <TextView
+            android:id="@+id/player_score_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/score_label_human"
+            android:textSize="20dp" 
+           />
+
+        <TextView
+            android:id="@+id/player_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+           android:text="@string/zero"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tie_score_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/score_label_tie"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/tie_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="@string/zero"
+            android:textSize="20dp"
+            android:textStyle="bold"
+             android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/computer_score_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="@string/score_label_computer"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/computer_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:gravity="right"
+            android:text="@string/zero"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+        </LinearLayout>
+
+        
     </RelativeLayout>
     
 </RelativeLayout>
