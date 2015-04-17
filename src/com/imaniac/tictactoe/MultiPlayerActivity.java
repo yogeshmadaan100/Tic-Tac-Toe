@@ -31,7 +31,7 @@ import com.imaniac.tictactoe.MultiTicTacToeGame.DifficultyLevel;
 import com.rey.material.app.DialogFragment;
 import com.rey.material.app.SimpleDialog;
 
-public class MultiPlayerActivity extends ActionBarActivity {
+public class MultiPlayerActivity extends BannerSample {
 
 	private static final String TAG = "AndroidTicTacToe";
 
@@ -73,7 +73,7 @@ public class MultiPlayerActivity extends ActionBarActivity {
 		setContentView(R.layout.main);
 		getSupportActionBar().setDisplayShowTitleEnabled(true);
 		getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4169e1")));
-		
+		testing();
 		Bundle b =getIntent().getExtras();
 		int dif=b.getInt("difficulty");
 		
@@ -339,20 +339,17 @@ public class MultiPlayerActivity extends ActionBarActivity {
 		for (int i = 0; i < mBoardButtons.length; i++)
 			mBoardButtons[i].setEnabled(false);
 		new MaterialDialog.Builder(this)
-        .title("Game Over")
         .content(""+mInfoTextView.getText().toString())
         .positiveText("Play Again")
         .negativeText("Exit")
         .titleGravity(GravityEnum.CENTER)
-        .contentColorRes(android.R.color.white)
-        .dividerColor(R.color.material_blue)
-        .backgroundColorRes(R.color.material_blue_grey_800)
-         .titleColorRes(R.color.material_blue)
-         .theme(com.afollestad.materialdialogs.Theme.LIGHT)
-        .dividerColorRes(R.color.material_blue)
-         .positiveColor(Color.WHITE)
-        .negativeColorAttr(android.R.attr.textColorSecondaryInverse)
-        .callback(new MaterialDialog.ButtonCallback() {
+        .contentColor(Color.parseColor("#4169e1"))
+        .contentGravity(GravityEnum.CENTER)
+        .dividerColor(Color.parseColor("#4169e1"))
+        .backgroundColorRes(R.color.material_grey)
+         .titleColor(Color.parseColor("#4169e1"))
+         .positiveColor(Color.parseColor("#4169e1"))
+        .negativeColor(Color.parseColor("#4169e1")).callback(new MaterialDialog.ButtonCallback() {
             @Override
             public void onPositive(MaterialDialog dialog) {
             	

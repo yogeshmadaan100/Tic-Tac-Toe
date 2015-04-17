@@ -28,7 +28,7 @@ import com.imaniac.tictactoe.TicTacToeGame.DifficultyLevel;
 import com.rey.material.app.DialogFragment;
 import com.rey.material.app.SimpleDialog;
 
-public class AndroidTicTacToe extends ActionBarActivity {
+public class AndroidTicTacToe extends BannerSample {
 
 	private static final String TAG = "AndroidTicTacToe";
 
@@ -74,7 +74,7 @@ public class AndroidTicTacToe extends ActionBarActivity {
 		getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4169e1")));
 		Bundle b =getIntent().getExtras();
 		int dif=b.getInt("difficulty");
-		
+		testing();
 		mBoardButtons = new Button[TicTacToeGame.BOARD_SIZE];
 		for (int i = 0; i < mBoardButtons.length; i++)
 			mBoardButtons[i] = (Button) findViewById(BUTTON_IDS[i]);
@@ -335,20 +335,17 @@ public class AndroidTicTacToe extends ActionBarActivity {
 		for (int i = 0; i < mBoardButtons.length; i++)
 			mBoardButtons[i].setEnabled(false);
 		new MaterialDialog.Builder(this)
-        .title("Game Over")
         .content(""+mInfoTextView.getText().toString())
         .positiveText("Play Again")
         .negativeText("Exit")
         .titleGravity(GravityEnum.CENTER)
-        
-        .dividerColor(R.color.material_blue)
-        .contentColorRes(android.R.color.white)
+        .contentColor(Color.parseColor("#4169e1"))
+        .contentGravity(GravityEnum.CENTER)
+        .dividerColor(Color.parseColor("#4169e1"))
         .backgroundColorRes(R.color.material_grey)
-        .titleColorRes(R.color.material_blue)
-        .dividerColorRes(R.color.material_blue)
-        .positiveColor(Color.WHITE)
-        .negativeColorAttr(android.R.attr.textColorSecondaryInverse)
-        .callback(new MaterialDialog.ButtonCallback() {
+         .titleColor(Color.parseColor("#4169e1"))
+         .positiveColor(Color.parseColor("#4169e1"))
+        .negativeColor(Color.parseColor("#4169e1")).callback(new MaterialDialog.ButtonCallback() {
             @Override
             public void onPositive(MaterialDialog dialog) {
             	
