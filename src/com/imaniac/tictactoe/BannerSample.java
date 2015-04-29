@@ -28,7 +28,7 @@ public class BannerSample extends ActionBarActivity {
 	  public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.activity_banner_sample);
-
+	    testing();
 	    // Create an ad.
 	    
 	  }

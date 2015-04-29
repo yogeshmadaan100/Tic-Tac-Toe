@@ -12,6 +12,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -19,11 +20,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.GravityEnum;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.imaniac.tictactoe.TicTacToeGame.DifficultyLevel;
 import com.rey.material.app.DialogFragment;
 import com.rey.material.app.SimpleDialog;
@@ -334,7 +339,7 @@ public class AndroidTicTacToe extends BannerSample {
 		mGameOver = true;
 		for (int i = 0; i < mBoardButtons.length; i++)
 			mBoardButtons[i].setEnabled(false);
-		new MaterialDialog.Builder(this)
+		MaterialDialog dialog=new MaterialDialog.Builder(this)
         .content(""+mInfoTextView.getText().toString())
         .positiveText("Play Again")
         .negativeText("Exit")
@@ -342,10 +347,11 @@ public class AndroidTicTacToe extends BannerSample {
         .contentColor(Color.parseColor("#4169e1"))
         .contentGravity(GravityEnum.CENTER)
         .dividerColor(Color.parseColor("#4169e1"))
-        .backgroundColorRes(R.color.material_grey)
+        .backgroundColor(Color.parseColor("#ECE0E0"))
          .titleColor(Color.parseColor("#4169e1"))
-         .positiveColor(Color.parseColor("#4169e1"))
-        .negativeColor(Color.parseColor("#4169e1")).callback(new MaterialDialog.ButtonCallback() {
+         .positiveColor(Color.parseColor("#000000"))
+         .negativeColor(Color.parseColor("#000000"))
+         .customView(R.layout.dialog).callback(new MaterialDialog.ButtonCallback() {
             @Override
             public void onPositive(MaterialDialog dialog) {
             	
@@ -362,8 +368,46 @@ public class AndroidTicTacToe extends BannerSample {
             public void onNegative(MaterialDialog dialog) {
             	onBackPressed();
             }
-        })
-        .show();
+        }).build()
+        ;
+		TextView title=(TextView) dialog.getCustomView().findViewById(R.id.textView1);
+		title.setText(""+mInfoTextView.getText().toString());
+		LinearLayout bannerLayout=(LinearLayout)dialog.getCustomView().findViewById(R.id.bannerad);
+		String AD_UNIT_ID = "ca-app-pub-4572005047829352/3154650426";
+		  
+		final AdView adView = new AdView(this);
+	    adView.setAdSize(AdSize.BANNER);
+	    adView.setAdUnitId(AD_UNIT_ID);
+
+	    // Add the AdView to the view hierarchy. The view will have no size
+	    // until the ad is loaded.
+	    bannerLayout.addView(adView);
+	   
+	    // Create an ad request. Check logcat output for the hashed device ID to
+	    // get test ads on a physical device.
+	    AdRequest adRequest = new AdRequest.Builder()
+	        .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+	        .build();
+
+	    // Start loading the ad in the background.
+	    adView.loadAd(adRequest);
+	    
+	    final Handler handler = new Handler();
+	    runOnUiThread(new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				//Toast.makeText(getApplicationContext(), "No Results Found", 1000).show();
+				adView.loadAd(new AdRequest.Builder().build());
+				//Toast.makeText(getApplicationContext(), "here", 1000).show();
+				//tv.setText(""+System.currentTimeMillis());
+				handler.postDelayed(this, 6000);
+			}
+		});
+		dialog.show();
+		
+		
 	}
 
 	@Override

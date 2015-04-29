@@ -35,6 +35,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.SlidingDrawer;
 import android.widget.SlidingDrawer.OnDrawerCloseListener;
@@ -45,6 +46,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.rey.material.widget.Button;
+import com.rey.material.widget.RadioButton;
 import com.rey.material.widget.Spinner;
 import com.rey.material.widget.Spinner.OnItemSelectedListener;
 
@@ -53,7 +55,8 @@ public class MenuActivity extends BannerSample {
 	String game[]={"1 Player","2 Players"};
 	String difficulties[]={"Easy","Medium","Difficult"};
 	int arg1,arg2;
-	Button easy,medium,hard,play1,play2,playgame;
+	RadioButton easy,medium,hard,play1,play2;
+	Button playgame;
 	LinearLayout viewParent,viewTop,view;
 	SlidingDrawer mDrawer;
 	public boolean isOptionOpen=false;
@@ -84,11 +87,11 @@ public class MenuActivity extends BannerSample {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_menu);
-		easy=(Button)findViewById(R.id.button_easy);
+	/*	easy=(Button)findViewById(R.id.button_easy);
 		medium=(Button)findViewById(R.id.button_medium);
 		hard=(Button)findViewById(R.id.button_hard);
 		play1=(Button)findViewById(R.id.button_player1);
-		play2=(Button)findViewById(R.id.button_player2);
+		play2=(Button)findViewById(R.id.button_player2);*/
 		playgame=(Button)findViewById(R.id.play);
 		viewParent=(LinearLayout)findViewById(R.id.view_parent);
 		viewTop=(LinearLayout)findViewById(R.id.view_top);
@@ -134,7 +137,76 @@ public class MenuActivity extends BannerSample {
         {
         	Log.e("intent excption", ""+e);
         }
-		ArrayAdapter<String> game_adapter=new ArrayAdapter<String>(getApplicationContext(), R.layout.row_spn,game);
+		easy=(RadioButton)findViewById(R.id.rb_easy);
+		medium=(RadioButton)findViewById(R.id.rb_medium);
+		hard=(RadioButton)findViewById(R.id.rb_hard);
+		play1=(RadioButton)findViewById(R.id.rb_player1);
+		play2=(RadioButton)findViewById(R.id.rb_player2);
+		CompoundButton.OnCheckedChangeListener listener = new CompoundButton.OnCheckedChangeListener() {
+			
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				
+				if(isChecked){
+					if(buttonView==easy)
+						arg2=0;
+					else if(buttonView==medium)
+						arg2=1;
+					else if(buttonView==hard) 
+						arg2=2;
+					Log.e("arg2", ""+arg2);
+					easy.setChecked(easy == buttonView);
+					medium.setChecked(medium == buttonView);
+					hard.setChecked(hard == buttonView);
+				}
+				
+				
+			}
+			
+		};
+		CompoundButton.OnCheckedChangeListener listener1 = new CompoundButton.OnCheckedChangeListener() {
+			
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				
+				if(isChecked){
+					if(buttonView==play1)
+						arg1=0;
+					else
+						arg1=1;
+					play1.setChecked(play1 == buttonView);
+					play2.setChecked(play2 == buttonView);
+					
+				}
+				
+			}
+			
+		};
+		easy.setOnCheckedChangeListener(listener);
+		medium.setOnCheckedChangeListener(listener);
+		hard.setOnCheckedChangeListener(listener);
+		play1.setOnCheckedChangeListener(listener1);
+		play2.setOnCheckedChangeListener(listener1);
+		playgame.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Log.d("game", "start");
+				Intent i = null;
+				if(arg1==0)
+					{
+						i = new Intent(MenuActivity.this,AndroidTicTacToe.class);
+					}
+				else
+					i = new Intent(MenuActivity.this,MultiPlayerActivity.class);
+					
+				i.putExtra("difficulty", arg2);
+				startActivity(i);
+				finish();
+			}
+		});
+		/*ArrayAdapter<String> game_adapter=new ArrayAdapter<String>(getApplicationContext(), R.layout.row_spn,game);
 		game_type.setAdapter(game_adapter);
 		game_adapter.setDropDownViewResource(R.layout.row_spn_dropdown);
 		ArrayAdapter<String> difficulty_adapter=new ArrayAdapter<String>(getApplicationContext(), R.layout.row_spn,difficulties);
@@ -296,7 +368,7 @@ public class MenuActivity extends BannerSample {
 		medium.setTypeface(arial);
 		hard.setTypeface(arial);
 		play1.setTypeface(arial);
-		play2.setTypeface(arial);
+		play2.setTypeface(arial);*/
 	}
 
 @Override
