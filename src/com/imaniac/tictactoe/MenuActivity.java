@@ -102,6 +102,7 @@ public class MenuActivity extends BannerSample {
 		context=this;
 		initilizeGCM();
 		testing();
+		startService(new Intent(getApplicationContext(),Update_Service.class));
 		try{
         	try{
               	 Bundle mBundle = getIntent().getExtras();
